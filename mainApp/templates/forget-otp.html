@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{%block title %}
+<title>Bakery | Forget Password Page</title>
+{%endblock title%}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-md-2 col-1"></div>
+                <div class="col-md-8 col-10">
+                    <h5 class="background1 text-light text-center rounded p-2">Forget Password Section</h5>
+                    {% for i in messages %}
+                    <div class="alert alert-danger  alert-dismissible fade show text-center p-4" role="alert">
+                        {{i}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {%endfor%}
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <label class="form-label">OTP</label>
+                        <div class="input-group flex-nowrap">
+                            <span class="input-group-text" id="addon-wrapping">@</span>
+                            <input type="number" class="form-control" name="otp"
+                            placeholder="Enter OTP which sent on Your Registered Email Address" 
+                                aria-describedby="addon-wrapping">
+                        </div>
+
+                        <button type="submit" class="btn background1 btn-secondary text-light w-100 mt-4">Submit OTP</button>
+                    </form>
+                   
+                </div>
+                <div class="col-md-2 col-1"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{%block title %}
+<title>Bakery | Single Product Page</title>
+{%endblock title%}
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 col-12">
+            <img src="{{data.pic1.url}}" height="500px" class="img rounded w-100 single" alt="...">
+        </div>
+        <div class="col-md-6 col-12">
+            <h5 class="background1 text-light text-center p-2 " style="font-weight: bolder;">{{data.name}}</h5>
+            <table class="table  table-striped table-hover">
+                <tr>
+                    <th>Flavour</th>
+                    <td>{{data.flavour}}</td>
+                </tr>
+                <tr>
+                    <th>Cake Type</th>
+                    <td>{{data.cakeType}}</td>
+                </tr>
+                <tr>
+                    <th>Shape</th>
+                    <td>{{data.shape}}</td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td>{{data.weight}} gram</td>
+                </tr>
+                <tr>
+                    <th>Color</th>
+                    <td>{{data.color}}</td>
+                </tr>
+                <tr>
+                    <th>Stack</th>
+                    <td>{{data.stack}}</td>
+                </tr>
+                <tr>
+                    <th>Base Price</th>
+                    <td class="" style="color: rgb(61, 10, 108);font-weight: bolder;">
+                        &#8377;<del>{{data.baseprice}}</del> <sub>{{data.finalprice}}</sub></td>
+                </tr>
+                <tr>
+                    <th>Discount</th>
+                    <td style="color: rgb(10, 108, 53);font-weight: bolder;">{{data.discount}}%</td>
+                </tr>
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{data.description}}</td>
+                </tr>
+                <tr>
+                    <th><a href="/add-to-cart/{{data.id}}" class="btn btn-success  w-100">Add To Card</a></th>
+                    <th><a href="/add-to-wishlist/{{data.id}}"class="btn btn-warning  text-light w-100">Add To Wiselist</a></th>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

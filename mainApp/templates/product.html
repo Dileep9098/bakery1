@@ -1,0 +1,61 @@
+ {% extends 'index.html' %}
+ {%block title %}
+ <title>Bakery | Product</title>
+ {%endblock%}
+ {% block content %}
+   
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
+            <h5 class="background1 text-light text-center p-2 mt-2">Menu</h5>
+            <div class="list-group">
+                <h6 class="background1 text-light text-center p-1">Flavour</h6>
+                <a href="/product/All/{{ct}}/{{sp}}/" class="list-group-item list-group-item-action">All</a>
+
+                {% for i in flavour  %}
+                <a href="/product/{{i.name}}/{{ct}}/{{sp}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}    
+            </div>
+            <div class="list-group mt-1">
+                <h6 class="background1 text-light text-center p-1">CakeType</h6>
+                <a href="/product/{{fl}}/All/{{sp}}/" class="list-group-item list-group-item-action">All</a>
+
+                {% for i in cakeType  %}
+                <a href="/product/{{fl}}/{{i.name}}/{{sp}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}    
+            </div>
+            <div class="list-group mt-1">
+                <h6 class="background1 text-light text-center p-1">Shape</h6>
+                <a href="/product/{{fl}}/{{ct}}/All/" class="list-group-item list-group-item-action">All</a>
+
+                {% for i in shape  %}
+                <a href="/product/{{fl}}/{{ct}}/{{i.name}}/" class="list-group-item list-group-item-action">{{i.name}}</a>
+                {% endfor %}    
+            </div>
+
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-6 col-12">
+            <h5 class="background1 text-center text-light p-2 my-2">Product Section</h5>
+            <div class="row">
+                {% for i in data %}
+                <div class="col-xl-3 col-lg-4 col-md-6  col-12 mb-3">
+                    <div class="card">
+                        <img src="{{i.pic1.url}}" class="card-img-top" height="250px" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title" style="font-weight: bolder; font-family: 'Times New Roman', Times, serif;">{{i.name}}</h5>
+                          <p class="card-text" style="color: rgb(72, 5, 71);">{{i.flavour}} {{i.cakeType}}</sub></p>
+    
+                          <p class="card-text"style="color: rgb(61, 10, 108);font-weight: bolder;">&#8377;<del>{{i.baseprice}}</del> <sub>{{i.finalprice}}</sub></p>
+                          <p class="card-text text-success  " style="font-weight: bolder;">Discount {{i.discount}}%</p>
+    
+                          <a href="/single-product/{{i.id}}" class="btn btn-secondary btn-sm w-100">Add To Card</a>
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+ </div>
+ {%endblock%}
