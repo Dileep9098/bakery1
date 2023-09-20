@@ -164,7 +164,7 @@ def updateProfile(Request):
 
     return render(Request, "update-profile.html", {'user': buyer})
 
-
+@login_required(login_url='/login/')
 def addToCart(Request, id):
     #   Request.session.flush()
     cart = Request.session.get('cart', None)
@@ -186,8 +186,7 @@ def addToCart(Request, id):
     return redirect("/cart")
 
 # Cart PAge
-
-
+@login_required(login_url='/login/')
 def cartPage(Request):
     cart = Request.session.get('cart', None)
     c = []
@@ -203,8 +202,7 @@ def cartPage(Request):
     return render(Request, "cart.html", {'cart': c, 'total': total, 'shipping': shipping, 'final': final})
 
 # Delete Cart
-
-
+@login_required(login_url='/login/')
 def deleteCart(Request, pid):
     cart = Request.session.get('cart', None)
     if (cart):
@@ -216,8 +214,7 @@ def deleteCart(Request, pid):
     return redirect("/cart")
 
 # Update CArt
-
-
+@login_required(login_url='/login/')
 def updateCart(Request, pid, op):
     cart = Request.session.get('cart', None)
     if (cart):
@@ -290,7 +287,6 @@ def checkout(Request):
 
 client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY))
 
-
 @login_required(login_url='/login/')
 def orderPage(Request):
     # data = Product.objects.get(id=id)
@@ -362,11 +358,11 @@ def paymentSuccess(request, rppid, rpoid, rpsid):
     check.save()
     return redirect('/confirmation/')
 
-
+@login_required(login_url='/login/')
 def confirmation(Request):
     return render(Request, "confirmation.html")
 
-
+@login_required(login_url='/login/')
 def contact(Request):
     if (Request.method == "POST"):
         c = Contact()
@@ -447,3 +443,8 @@ def forgetPassword(Request):
         else:
             messages.error(Request, "UnAuthorized!!!!")
     return render(Request, "forget-password.html")
+
+
+def reviews(Request):
+    return render(Request,"reviews.html")
+

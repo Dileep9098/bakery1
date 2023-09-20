@@ -28,6 +28,7 @@ urlpatterns = [
     path("search/",views.searchPage),
     path("forget-username/",views.forgetUsername),
     path("forget-otp/",views.forgetOTP),
+    path('reviews/',views.reviews),
 
     path("forget-password/",views.forgetPassword),
     path('paymentSuccess/<str:rppid>/<str:rpoid>/<str:rpsid>/',views.paymentSuccess),

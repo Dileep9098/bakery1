@@ -74,16 +74,6 @@
     font-size: 2rem;
 }
 
-nav li :hover {
-    border-bottom: .1rem solid black;
-    /* padding-bottom: .4rem; */
-}
-
-nav li .login :hover {
-    border: none;
-    background-color: rgb(211, 219, 226);
-    /* padding-bottom: .4rem; */
-}
 
 .m1 {
     margin-top: -15px;
@@ -169,56 +159,3 @@ nav li .login :hover {
 
 }
 
-/* .container{
-    display: flex;
-    
-}
-.card{
-    height: 300px;
-    margin: 5px;
-    box-shadow: 5px 5px 20px black;
-    overflow: hidden;
-    
-}
-.img{
-    height: 300px;
-    width: 350px;
-    border-radius: 3px;
-}
-.intro{
-    height: 60px;
-    width: 350px;
-    padding: 6px;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    background: rgb(49, 49, 49);
-    color: white;
-    transition: .5s;
-    text-align: center;
-} */
-/* h2{
-    margin: 10px;
-    font-size: 30px;
-}
-p{
-    font-size: 20px;
-    margin: 20px;
-    visibility: hidden;
-    opacity: 0;
-} */
-/* .card:hover{
-    cursor: pointer;
-}
-.card:hover .intro {
-    height: 100px;
-   bottom: 0px;
-    background: black;
-}
-.card:hover p{
-    opacity: 1;
-    visibility: visible;
-}
-.card:hover .img{
-    transform: scale(1.1) rotate(-3deg)
-} */
